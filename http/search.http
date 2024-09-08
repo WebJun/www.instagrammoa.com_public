@@ -1,0 +1,27 @@
+# 아이유 인스타그램
+@KEYWORD = dlwlrma
+
+###
+POST /api/search
+host: {{local_api}}
+content-type: application/json
+
+{
+    "keyword":"{{KEYWORD}}"
+}
+
+> {%
+    client.global.set('USER_SEQ', response.body.seq)
+    client.log(client.global.get('USER_SEQ'));
+%}
+
+###
+POST /api/files HTTP/1.1
+host: {{local_api}}
+content-type: application/json
+
+{
+    "mode":"user",
+    "seq":"{{USER_SEQ}}",
+    "page":1
+}
