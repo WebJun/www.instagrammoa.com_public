@@ -1,22 +1,21 @@
 import { Module } from '@nestjs/common';
+import { ConsoleModule } from 'nestjs-console';
+import { MyService } from './service';
 import { ConfigureModule } from './configures/configure.module';
 import { DatabaseModule } from './database/database.module';
-import { ImageModule } from './provided-modules/image/image.module';
-import { FileModule } from './provided-modules/file/file.module';
-import { IpChangeModule } from './provided-modules/ip-change/ip-change.module';
 import { CustomQueueModule } from './provided-modules/custom-queue/custom-queue.module';
+import { TelegramModule } from './provided-modules/telegram/telegram.module';
 
 const coreModules = [ConfigureModule, DatabaseModule];
 
 @Module({
   imports: [
     ...coreModules,
-    ImageModule,
-    FileModule,
-    IpChangeModule,
+    ConsoleModule, // import the ConsoleModule
     CustomQueueModule,
+    TelegramModule,
   ],
-  controllers: [],
-  providers: [],
+  providers: [MyService],
+  exports: [MyService],
 })
-export class AppModule {}
+export class MyModule {}
