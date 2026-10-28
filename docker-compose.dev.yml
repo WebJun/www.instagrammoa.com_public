@@ -1,0 +1,27 @@
+services:
+
+  devback.com:
+    restart: always
+    build:
+      context: ./back
+      dockerfile: ../back.prod.Dockerfile
+    ports:
+      - '${BACK_DEV_PORT}:3000'
+    volumes:
+      - './back:/app'
+      - '${VOLUME_DEV_PATH}:/app/storage'
+    networks:
+      - database_default
+
+  devfront.com:
+    restart: always
+    build:
+      dockerfile: ./front.Dockerfile
+    ports:
+      - '${FRONT_DEV_PORT}:3000'
+    volumes:
+      - './front:/app'
+
+networks:
+  database_default:
+    external: true

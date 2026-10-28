@@ -1,0 +1,23 @@
+@APP_ID = 936619743392459
+
+###
+GET /api/v1/users/web_profile_info/?username=dlwlrma
+  Host: www.instagram.com
+  Connection: keep-alive
+  X-IG-App-ID: {{APP_ID}}
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Whale/3.21.192.18 Safari/537.36
+
+###
+GET /api/v1/feed/user/dlwlrma/username/?count=12
+  Host: www.instagram.com
+  X-IG-App-ID: {{APP_ID}}
+  User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Whale/3.21.192.18 Safari/537.36
+
+GET /api/v1/feed/user/1692800026/?count=12&max_id=3105856812969817282_1692800026
+  host: www.instagram.com
+  user-agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/118.0.0.0 Whale/3.23.214.10 Safari/537.36
+  X-IG-App-ID: {{APP_ID}}
+
+### 안됨
+GET /p/C0BXBk5S53_/
+host: www.instagram.com
